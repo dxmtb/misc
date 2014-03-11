@@ -79,7 +79,7 @@ if has("autocmd")
 					\   exe "normal! g`\"" |
 					\ endif
 		autocmd Filetype ruby set sw=2
-		autocmd Filetype ruby colorscheme blackboard
+                "		autocmd Filetype ruby colorscheme blackboard
 
 		autocmd BufReadPost *.html set ts=6
 
@@ -103,6 +103,7 @@ set nu
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'bling/vim-airline'
 Bundle 'OmniCppComplete'
 Bundle 'gmarik/vundle'
 Bundle 'pylint.vim'
@@ -123,6 +124,7 @@ Bundle 'wesleyche/SrcExpl'
 Bundle 'moll/vim-node'
 Bundle 'kchmck/vim-coffee-script'     
 Bundle 'fencview.vim'
+Bundle 'peaksea'
 
 syntax enable
 filetype plugin indent on
@@ -139,14 +141,12 @@ map <F5> :w<CR>:make<CR>:!./%:r<CR>
 map <F6> :w<CR>:make<CR>:!cgdb %:r<CR>
 map <F7> :w<CR>:make<CR>
 
-colorscheme molokai
+colorscheme peaksea
 let g:winManagerWindowLayout='FileExplorer'
 
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 let g:neocomplcache_enable_at_startup = 1
 set autochdir
-let g:rsenseHome = '/usr/local/Cellar/rsense/0.3'
-let g:rsenseUseOmniFunc = 1
 let g:snippets_dir = '~/.vim/bundle/snipMate/snippets'
 let g:js_indent_log = 0
 
@@ -158,3 +158,8 @@ set directory=/tmp//
 if has("gui_macvim")
         set transparency=10
 endif
+
+let g:airline_powerline_fonts=1
+let g:airline_theme='light'
+let g:airline_powerline_fonts=0
+set laststatus=2
