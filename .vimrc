@@ -141,7 +141,7 @@ map <F5> :w<CR>:make<CR>:!./%:r<CR>
 map <F6> :w<CR>:make<CR>:!cgdb %:r<CR>
 map <F7> :w<CR>:make<CR>
 
-colorscheme peaksea
+colorscheme molokai
 let g:winManagerWindowLayout='FileExplorer'
 
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
