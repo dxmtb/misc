@@ -103,9 +103,10 @@ set nu
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
+
+Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
 "Bundle 'OmniCppComplete'
-Bundle 'gmarik/vundle'
 Bundle 'pylint.vim'
 Bundle 'molokai'
 Bundle 'FencView.vim'
