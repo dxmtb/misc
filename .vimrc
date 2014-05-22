@@ -101,10 +101,10 @@ endif
 
 set nu
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 Bundle 'bling/vim-airline'
-Bundle 'OmniCppComplete'
+"Bundle 'OmniCppComplete'
 Bundle 'gmarik/vundle'
 Bundle 'pylint.vim'
 Bundle 'molokai'
@@ -125,6 +125,9 @@ Bundle 'moll/vim-node'
 Bundle 'kchmck/vim-coffee-script'     
 Bundle 'fencview.vim'
 Bundle 'peaksea'
+Bundle 'honza/vim-snippets'
+""Bundle 'Valloric/YouCompleteMe'
+"Bundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 syntax enable
 filetype plugin indent on
@@ -134,8 +137,9 @@ let Tlist_Use_Right_Window=1
 let Tlist_Exit_OnlyWindow = 1
 
 set encoding=utf-8
+silent !mkdir -p ~/.backup > /dev/null 2>&1
 set backupdir=~/.backup/
-"set makeprg=c++\ -Wall\ -g\ %\ -o\ %:r
+set makeprg=g++\ -Wall\ -g\ %\ -o\ %:r
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 map <F5> :w<CR>:make<CR>:!./%:r<CR>
 map <F6> :w<CR>:make<CR>:!cgdb %:r<CR>
@@ -155,11 +159,35 @@ set tags=tags;
 let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
 set directory=/tmp//
-if has("gui_macvim")
-        set transparency=10
-endif
+"if has("gui_macvim")
+"        set transparency=10
+"endif
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='light'
 let g:airline_powerline_fonts=0
 set laststatus=2
+
+map <D-r> :make<CR>
+
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_global_ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_key_list_select_completion = ['<Down>']
+let g:snips_author='Bo Tian <smxtianbo@gmail.com>'
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+function! s:insert_gates()
+  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o#define " . gatename . " "
+  execute "normal! Go#endif /* " . gatename . " */"
+  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+
+let g:Tex_ViewRule_pdf = 'Preview'
+let g:tex_flavor='xelatex'
+set grepprg=grep\ -nH\ $*
+set nofoldenable
+set sw=4
+set ts=4
