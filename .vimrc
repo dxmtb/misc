@@ -18,7 +18,7 @@ Bundle 'a.vim'
 Bundle 'taglist.vim'
 Bundle 'winmanager'
 Bundle 'https://github.com/Shougo/neocomplcache.vim.git'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Bundle "pangloss/vim-javascript"
 Bundle 'wesleyche/Trinity'
 Bundle 'wesleyche/SrcExpl'
@@ -68,10 +68,11 @@ augroup vimrcEx
         \   exe "normal! g`\"" |
         \ endif
 
-  autocmd Filetype ruby set sw=2
+  autocmd Filetype ruby,coffee set sw=2
   autocmd Filetype cpp set makeprg=g++\ -Wall\ -g\ %\ -o\ %:r
   autocmd Filetype java set makeprg=javac\ %\ &&\ java\ %:r
   autocmd Filetype python set makeprg=python\ %
+  autocmd Filetype ocaml set makeprg=ocamlfind\ ocamlc\ -package\ batteries\ -linkpkg\ %\ &&\ ./a.out\ <input.txt
   autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
   " autocmd BufWritePost *.py call Flake8()
 
@@ -131,8 +132,16 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 
 "set grepprg=grep\ -nH\ $*
 set nofoldenable
-set sw=2
-set ts=2
+set sw=4
+set ts=4
 set nu
 set undofile
 set undodir=~/.vimundo
+
+let g:SrcExpl_winHeight = 8
+let g:SrcExpl_refreshTime = 100
+let g:SrcExpl_jumpKey = "<ENTER>"
+let g:SrcExpl_gobackKey = "<SPACE>"
+let g:SrcExpl_searchLocalDef = 1
+let g:SrcExpl_isUpdateTags = 0
+let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
