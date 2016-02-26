@@ -24,7 +24,7 @@ Bundle 'wesleyche/Trinity'
 Bundle 'wesleyche/SrcExpl'
 Bundle 'peaksea'
 Bundle 'honza/vim-snippets'
-""Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Plugin 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'nvie/vim-flake8'
@@ -69,7 +69,8 @@ augroup vimrcEx
         \ endif
 
   autocmd Filetype ruby,coffee set sw=2
-  autocmd Filetype cpp set makeprg=g++\ -Wall\ -g\ %\ -o\ %:r
+  autocmd Filetype cpp set makeprg=g++\ -Wall\ -std=c++11\ -g\ %\ -o\ %:r
+  autocmd Filetype c set makeprg=gcc\ -Wall\ -g\ %\ -o\ %:r
   autocmd Filetype java set makeprg=javac\ %\ &&\ java\ %:r
   autocmd Filetype python set makeprg=python\ %
   autocmd Filetype ocaml set makeprg=ocamlfind\ ocamlc\ -package\ batteries\ -linkpkg\ %\ &&\ ./a.out\ <input.txt
