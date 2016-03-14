@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Bundle 'syntastic'
 "Bundle 'pydave/AsyncCommand'
 "Bundle 'stgpetrovic/syntastic-async'
@@ -31,6 +32,7 @@ Bundle 'nvie/vim-flake8'
 Bundle 'myhere/vim-nodejs-complete'
 "Bundle 'hallettj/jslint.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'mxw/vim-jsx'
 
 syntax enable
 filetype plugin indent on
@@ -68,7 +70,7 @@ augroup vimrcEx
         \   exe "normal! g`\"" |
         \ endif
 
-  autocmd Filetype ruby,coffee set sw=2
+  autocmd Filetype ruby,coffee,javascript,javascript.jsx set sw=2
   autocmd Filetype cpp set makeprg=g++\ -Wall\ -std=c++11\ -g\ %\ -o\ %:r
   autocmd Filetype c set makeprg=gcc\ -Wall\ -g\ %\ -o\ %:r
   autocmd Filetype java set makeprg=javac\ %\ &&\ java\ %:r
@@ -146,3 +148,5 @@ let g:SrcExpl_gobackKey = "<SPACE>"
 let g:SrcExpl_searchLocalDef = 1
 let g:SrcExpl_isUpdateTags = 0
 let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
+
+let g:jsx_ext_required = 0
