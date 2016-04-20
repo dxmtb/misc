@@ -33,6 +33,7 @@ Bundle 'myhere/vim-nodejs-complete'
 "Bundle 'hallettj/jslint.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-sleuth'
 
 syntax enable
 filetype plugin indent on
@@ -111,7 +112,7 @@ let g:neocomplcache_enable_at_startup = 1
 set autochdir
 let g:js_indent_log = 0
 
-set expandtab
+"set expandtab
 set tags=tags;
 
 set directory=/tmp//
@@ -135,8 +136,8 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 
 "set grepprg=grep\ -nH\ $*
 set nofoldenable
-set sw=4
-set ts=4
+"set sw=4
+"set ts=4
 set nu
 set undofile
 set undodir=~/.vimundo
